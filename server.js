@@ -8,7 +8,7 @@ app.listen(process.env.PORT);
 setInterval(() => {
     http.get(`http://.glitch.me/`);
 }, 280000);
-
+const n =  ['667030309031641089'];
 const {
     Client,
     RichEmbed
@@ -23,14 +23,6 @@ const {
 const client = new Client({
     disableEveryone: true
 })
-const ytdl = require("ytdl-core");
-const canvas = require("canvas");
-const Canvas = require("canvas");
-const convert = require("hh-mm-ss")
-const fetchVideoInfo = require("youtube-info");
-const botversion = require('./package.json').version;
-const simpleytapi = require('simple-youtube-api')
-const moment = require("moment");
 const fs = require('fs');
 const util = require("util")
 const gif = require("gif-search");
@@ -41,15 +33,7 @@ const {
     get
 } = require('snekfetch');
 const db = require('quick.db')
-const guild = require('guild');
-const dateFormat = require('dateformat'); //npm i dateformat
-const YouTube = require('simple-youtube-api');
-const youtube = new YouTube('AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8');
-const hastebins = require('hastebin-gen');
-const getYoutubeID = require('get-youtube-id');
-const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
-const pretty = require("pretty-ms");
-client.login(process.env.BOT_TOKEN);
+client.login("NzE5MTYyMzU0Mjc3MDIzODI2.XtzaIg.weoZZIXxfj0qN34do34Zi6BsLt0");
 const queue = new Map();
 var table = require('table').table
 const Discord = require('discord.js');
@@ -224,10 +208,8 @@ client.on('message', async message => {
     }
 
   if (message.content.startsWith(prefix + 'add')) {
-
-
-        if (message.author.id !== URID) return message.reply("** Only <@" + URID + "> can use this command.**");
-        let type = message.content.split(" ")[1];
+if (!n.includes(message.author.id)) return;
+ let type = message.content.split(" ")[1];
         let email = message.content.split(" ")[2];
         let pass = message.content.split(" ")[3];
 
@@ -263,61 +245,12 @@ let alt = {
 
         } 
     }
-    if (message.content.startsWith(prefix + 'give')) {
-
-        let type = message.content.split(" ")[2];
-        let args = message.content.split(" ")[3];
-        let user = message.mentions.users.first()
-
-        if (!user) return message.channel.send("**Please mention a user**")
-
-        if (!type) return message.channel.send("**Please input a alt type**")
-        if (!args[0]) return message.reply("**Please input amount**")
-        if (type === "sfa") {
-            let C = 0;
-            let Accs = []; 
-            sfa.forEach(acc => {
-
-                if (!acc.email) return;
-                if (C == args) return;;
-                Accs.push(`Email: ${acc.email} | pass: ${acc.pass}`);
-                C++; 
-                delete acc.email;
-                delete acc.pass;
-
-                fs.writeFile("./sfa.json", JSON.stringify(sfa), (err) => {
-                    if (err) console.error(err)
-                }) 
-            });
-            message.channel.send('**Done**')
-            user.send(`${message.author.username} has been gifted you a sfa account \n \`\`\`${Accs.join("\n")}\`\`\` `).then(M => M.delete(5 * 60 * 1000))
-
+    
         }
 
-        if (type === "nfa") {
-            let C = 0;
-            let Accs = [];
-            nfa.forEach(acc => {
+    
 
-                if (!acc.email) return;
-                if (C == args) return;;
-                Accs.push(`Email: ${acc.email} | pass: ${acc.pass}`);
-                C++; 
-                delete acc.email;
-                delete acc.pass;
-
-                fs.writeFile("./nfa.json", JSON.stringify(nfa), (err) => {
-                    if (err) console.error(err)
-                }) 
-            });
-            message.channel.send('**Done**')
-            user.send(`${message.author.username} has been gifted you a nfa account \n \`\`\`${Accs.join("\n")}\`\`\` `).then(M => M.delete(5 * 60 * 1000))
-
-        }
-
-    }
-
-})
+)
 
 
 
