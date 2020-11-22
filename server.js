@@ -74,9 +74,9 @@ client.on("message", message => {
 const cools = [];
 let sfa = JSON.parse(fs.readFileSync('./sfa.json', 'utf8')); // الملف الي بتحط به الحسابات الفل داتا
 let nfa = JSON.parse(fs.readFileSync('./nfa.json', 'utf8')); // الملف الي بتحط به الحسابات العاديه
-let SFAP = 1000; /*سعر الحساب الواحد الفل داتا*/
-let NFAP = 100; /*سعر الحساب الواحد العادي*/
-let URID = '' //مين بيتحوله الكريديت
+let SFAP = 10000; /*سعر الحساب الواحد الفل داتا*/
+let NFAP = 1000; /*سعر الحساب الواحد العادي*/
+let URID = '667030309031641089' //مين بيتحوله الكريديت
 client.on('message', async message => { 
     let bOn = await db.fetch(`bOn_${message.guild.id}`)
     if (message == prefix + 'stock') {
@@ -209,12 +209,11 @@ client.on('message', async message => {
 
   if (message.content.startsWith(prefix + 'add')) {
 if (!n.includes(message.author.id)) return;
- let type = message.content.split(" ")[1];
-        let email = message.content.split(" ")[2];
-        let pass = message.content.split(" ")[3];
+     let type = message.content.split(" ");
+  let email = message.content.split(" ")[1];
+        let pass = message.content.split(" ")[2];
 
-        let types = ["sfa", "nfa", "send"]
-
+        
         if (!email) return message.reply("Email?");
         if (!pass) return message.reply("Password !")
         if (type == "sfa") {
