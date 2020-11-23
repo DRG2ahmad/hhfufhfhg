@@ -209,9 +209,9 @@ client.on('message', async message => {
 
   if (message.content.startsWith(prefix + 'add')) {
 if (!n.includes(message.author.id)) return;
-     let type = message.content.split(" ");
-  let email = message.content.split(" ")[1];
-        let pass = message.content.split(" ")[2];
+     let type = message.content.split(" ")[1];
+  let email = message.content.split(" ")[2];
+        let pass = message.content.split(" ")[3];
 
         
         if (!email) return message.reply("Email?");
@@ -224,6 +224,7 @@ if (!n.includes(message.author.id)) return;
             sfa.push(alt)
             fs.writeFile("./sfa.json", JSON.stringify(sfa), (err) => {
                 if (err) console.error(err)
+              message.channel.send(err)
             })
 
             message.reply("**Successfully adedd this account.**");
